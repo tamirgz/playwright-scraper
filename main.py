@@ -10,7 +10,7 @@ async def scrape(url: str = Query(...)):
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
             page = await browser.new_page()
-            await page.goto(url, wait_until="networkidle")
+            await page.goto(url, wait_until="networkidle", timeout=60000)  # 60 seconds timeout
             html_content = await page.content()
             await browser.close()
             return {"url": url, "html": html_content}
