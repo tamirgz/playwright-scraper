@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: playwright-scraper
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
