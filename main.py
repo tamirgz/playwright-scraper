@@ -29,7 +29,7 @@ async def crawl(
     results = []
 
     async def scrape_page(page, current_url):
-        await page.goto(current_url, wait_until="networkidle")
+        await page.goto(current_url, wait_until="networkidle", timeout=300000)
         html = await page.content()
         title = await page.title()
 
